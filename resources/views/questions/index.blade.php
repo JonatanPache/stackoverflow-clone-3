@@ -5,13 +5,21 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"> All questions</div>
+                <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <h2>All Questions</h2>
+                        <div class="ms-auto">
+                            <a href="{{ route('questions.create') }}" class="btn btn-outline-secondary">Ask Question</a>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card-body">
 
                     @foreach ($questions as $question)
-                    <div class="row">
-                        <div class="col-md-1 counters">
+
+                    <div class="d-flex">
+                        <div class="flex-shrink-0 counters flex-column">
                             <div class="vote">
                                 <strong>{{ $question->votes }}</strong> {{ Str::plural('vote', $question->votes) }}
                             </div>
@@ -24,7 +32,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-10">
+                        <div class="flex-grow-1">
                             <h3 class="mt-0"> <a href="{{ $question->url }}"> {{ $question->title }}</h3>
                             {{-- <h3 class="mt-0"> <a href="{{ route('questions.show',$question->id) }}">
                                     $question->title }}</h3> --}}
@@ -35,15 +43,15 @@
                             </p>
                             {{ Str::limit($question->body,250) }}
                         </div>
-
-                        <hr>
-                        @endforeach
-
-                        <div class="mx-auto">
-                            {{ $questions->links() }}
-                        </div>
-
                     </div>
+                    <hr>
+                    @endforeach
+
+                    <div class="mx-auto">
+                        {{ $questions->links() }}
+                    </div>
+
+
 
                 </div>
             </div>
