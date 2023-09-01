@@ -18,7 +18,10 @@ class QuestionFactory extends Factory
     {
         return [
             'title'=>rtrim(fake()->sentence(rand(5,10)),"."),
-            'body'=>fake()->paragraph(rand(3,7),true)
+            'body'=>fake()->paragraph(rand(3,7),true),
+            'views' => rand(0,10),
+            'answer' => rand(0,10),
+            'votes' => rand(-5,10)
         ];
     }
 }

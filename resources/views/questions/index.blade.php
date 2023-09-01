@@ -11,16 +11,16 @@
 
                     @foreach ($questions as $question)
                     <div class="row">
-                        <div class="col-md counters">
+                        <div class="col-md-1 counters">
                             <div class="vote">
                                 <strong>{{ $question->votes }}</strong> {{ Str::plural('vote', $question->votes) }}
                             </div>
-                            <div class="status">
-                                <strong>{{ $question->answers }}</strong> {{ Str::plural('answer', $question->answers)
+                            <div class="status {{ $question->status }}">
+                                <strong>{{ $question->answer }}</strong> {{ Str::plural('answer', $question->answers)
                                 }}
                             </div>
                             <div class="view">
-                                {{ $question->views . "     " . Str::plural('view', $question->views) }}
+                                {{ $question->views . " " . Str::plural('view', $question->views) }}
                             </div>
                         </div>
 
