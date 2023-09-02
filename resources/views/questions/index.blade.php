@@ -16,6 +16,7 @@
 
                 <div class="card-body">
                     @include('layouts.message')
+
                     @foreach ($questions as $question)
 
                     <div class="d-flex">
@@ -33,7 +34,14 @@
                         </div>
 
                         <div class="flex-grow-1">
-                            <h3 class="mt-0"> <a href="{{ $question->url }}"> {{ $question->title }}</h3>
+                            <div class="d-flex align-items-center">
+                                <h3 class="mt-0"> <a href="{{ $question->url }}"> {{ $question->title }}</h3>
+
+                                <div class="ms-auto">
+                                    <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
+                                </div>
+                            </div>
+
                             {{-- <h3 class="mt-0"> <a href="{{ route('questions.show',$question->id) }}">
                                     $question->title }}</h3> --}}
                             <p class="lead">
