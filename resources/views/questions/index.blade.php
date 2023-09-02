@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="card-body">
-
+                    @include('layouts.message')
                     @foreach ($questions as $question)
 
                     <div class="d-flex">
@@ -47,11 +47,7 @@
                     <hr>
                     @endforeach
 
-                    <div class="mx-auto">
-                        {{ $questions->links() }}
-                    </div>
-
-
+                    {{ $questions->links() }}
 
                 </div>
             </div>
