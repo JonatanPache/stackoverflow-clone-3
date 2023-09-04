@@ -30,7 +30,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('questions',QuestionController::class);
+Route::resource('questions',QuestionController::class)->except('show');
+Route::get('/questions/{slug}',[QuestionController::class,'show'])->name('questions.show');
+
 require __DIR__.'/auth.php';
 
 Auth::routes();
